@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+ *  Copyright (c) 2015 The WebRTC project authors. All Rights Reserved.
+ *
+ *  Use of this source code is governed by a BSD-style license
+ *  that can be found in the LICENSE file in the root of the source
+ *  tree.
+-->
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta itemprop="description" content="Client-side WebRTC code samples">
+    <meta itemprop="image" content="../../../images/webrtc-icon-192x192.png">
+    <meta itemprop="name" content="WebRTC code samples">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <base target="_blank">
+
+    <title>Text Recognition</title>
+
+
+</head>
+
+<body style="background:#ffffff">
+<div class="container" style="padding:25px;margin:10px;margin-right:100px;" >
+  <h2 class="bg-primary text-white" style="padding:10px;margin:10px;margin-right:10px;text-align:center">Capture Image</h2>
+  <video class="img-thumbnail" id="video" width="640" height="480" autoplay capture="camera " style="border:1px solid #000000;"></video>
+  <br>
+  <br>
+  <button align="center" id="snap" class="btn btn-primary">Snap Photo</button>
+  <form action="{{ url_for('predict')}}" method="POST">
+  <div class="form-group" style="padding:10px;margin:10px;margin-right:10px;">
+    <input id="myimage" class="form-control" name="input1" placeholder="Image Path" type="hidden"></input>
+  </div>
+  <canvas class="img-thumbnail"  style="border:1px solid #000000;"></canvas>
+  <br>
+    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+  </form>
+</div>
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script  src = "{{ url_for('static', filename = 'text.js') }}" ></script>
+
+</body>
+</html>
